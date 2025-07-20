@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - hireHIVE</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="contact-body">
+
+  <header class="navbar">
+    <div class="navbar-logo">
+      <img src="./Assets/job-seeker.png" alt="HireHive Logo" class="logo-img" />
+      <span class="logo-text">hire<span class="highlight-hive">HIVE</span> <span class="tagline">|The Hive Where Careers Begin</span></span>
+    </div>
+    <nav class="navbar-links">
+      <a href="homepage.html">Homepage</a>
+      <a href="signup.html">Sign Up</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <main class="contact-container">
+    <div class="contact-card">
+      <h1>Contact Us</h1>
+      <p>We’d love to hear from you. Whether you’re looking for talent, seeking a job, or have any questions about our services, reach out to us!</p>
+<form id="contactForm" class="contact-form">
+  <input
+    type="text"
+    id="name"
+    name="name"
+    placeholder="Your Name"
+    required
+    autocomplete="name"
+  />
+  <input
+    type="email"
+    id="email"
+    name="email"
+    placeholder="Your Email"
+    required
+    autocomplete="email"
+  />
+  <textarea
+    id="message"
+    name="message"
+    placeholder="Your Message"
+    rows="5"
+    required
+    autocomplete="off"
+  ></textarea>
+  <button type="submit">Send Message</button>
+</form>
+
+    </div>
+  </main>
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('contactForm');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      try {
+        const res = await fetch('http://localhost:3000/api/contact',{
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, message })
+        });
+
+        const data = await res.json();
+        if (res.ok) {
+          alert('Message sent successfully!');
+          form.reset();
+        } else {
+          alert(data.error || 'Something went wrong.');
+        }
+      } catch (err) {
+        console.error(err);
+        alert('Error sending message.');
+      }
+    });
+  });
+</script>
+</body>
+</html>
