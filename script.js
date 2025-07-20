@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (response.ok) {
           // You may store userId in localStorage if needed: localStorage.setItem('userId', result.userId);
-          window.location.href = 'homepage.html';
+          window.location.href = 'index.html';
         } else {
           showError(email, result.message || 'Login failed.');
         }
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const result = await response.json();
 
         if (response.ok) {
-          window.location.href = 'homepage.html';
+          window.location.href = 'index.html';
         } else {
           showError(email, result.message || 'Signup failed.');
         }
