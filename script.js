@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const result = await response.json();
 
         if (response.ok) {
-          window.location.href = 'index.html';
+          window.location.href = "index.html";
         } else {
           showError(email, result.message || 'Signup failed.');
         }
