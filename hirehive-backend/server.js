@@ -11,13 +11,6 @@ const contactRoutes = require('./routes/contact');
 dotenv.config();
 
 const app = express();
-// app.use(cors());
-// app.use(cors({
-//   origin: ['http://localhost:3000', 'http://127.0.0.1:3000'],
-//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-//   allowedHeaders: ['Content-Type', 'Authorization'],
-//   credentials: true,
-// }));
 
 app.use(cors({
   origin: '*',
@@ -25,10 +18,6 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: false,  // no credentials allowed, simpler setup
 }));
-
-// app.options('*', cors());
-// app.use(cors(corsOptions));
-// app.options('*', cors(corsOptions));
 
 app.use(express.json());
 

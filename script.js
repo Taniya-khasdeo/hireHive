@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (!isValid) return;
 
       try {
-        const response = await fetch('http://localhost:3000/api/auth/login', {
+        const response = await fetch('https://hirehive-2.onrender.com/api/auth/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (!isValid) return;
 
       try {
-        const response = await fetch('http://localhost:3000/api/auth/signup', {
+        const response = await fetch('https://hirehive-2.onrender.com/api/auth/signup', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function () {
       formData.append('userId', '12345'); // Replace with actual user ID
 
       try {
-        const res = await fetch('http://localhost:3000/api/resume/upload', {
+        const res = await fetch('https://hirehive-2.onrender.com/api/resume/upload', {
           method: 'POST',
           body: formData,
         });
